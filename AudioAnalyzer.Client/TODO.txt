@@ -1,0 +1,9 @@
+﻿
+Controls
+//TODO: RMS
+//TODO: EBU R128
+//TODO:UI!
+//TODO: Goniometr
+
+Logic
+//TODO: RequestForDetails

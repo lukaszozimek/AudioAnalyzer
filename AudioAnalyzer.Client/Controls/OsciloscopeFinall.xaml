@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="AudioAnalyzer.Client.Controls.OsciloscopeFinall"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:osc="clr-namespace:AudioAnalyzer.Client.Osciloscope"
+
+    mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <!--<UserControl.Resources>
+        <osc:FormattedStringConverter x:Key="formattedString" />
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <osc:SineCurve x:Name="xSineCurve" 
+                       Amplitude="{Binding ElementName=xAmplitude, Path=Value}" 
+                       Frequency="{Binding ElementName=xFrequency, Path=Value}" />
+
+        <osc:SineCurve x:Name="ySineCurve" 
+                       Amplitude="{Binding ElementName=yAmplitude, Path=Value}" 
+                       Frequency="{Binding ElementName=yFrequency, Path=Value}" />
+
+        <osc:Oscilloscope x:Name="oscilloscope" 
+                          Width="500" 
+                          Height="400" 
+                          Grid.Column="0" 
+                          VerticalAlignment="Top" 
+                          Margin="12" 
+                          XProvider="{Binding ElementName=xSineCurve}" 
+                          YProvider="{Binding ElementName=ySineCurve}" 
+                          Brightness="{Binding ElementName=brightness, Path=Value}" 
+                          Persistence="{Binding ElementName=persistence, Path=Value}" />
+
+        <StackPanel Grid.Column="1" 
+                    Margin="12">
+
+            <TextBlock Text="{Binding ElementName=xAmplitude,  
+                                      Path=Value,  
+                                      Converter={StaticResource formattedString},  
+                                      ConverterParameter='X Amplitude ({0:F1}):'}" />
+
+            <Slider x:Name="xAmplitude" 
+                    Minimum="0" Maximum="1" Value="0.9" 
+                    Margin="0 0 0 12" />
+
+            <TextBlock Text="{Binding ElementName=xFrequency,  
+                                      Path=Value,  
+                                      Converter={StaticResource formattedString},  
+                                      ConverterParameter='X Frequency ({0:F2} cps):'}" />
+            <Slider x:Name="xFrequency" 
+                    Minimum="0" Maximum="10" Value="2" 
+                    LargeChange="0.1" 
+                    Margin="0 0 0 24" />
+
+            <TextBlock Text="{Binding ElementName=yAmplitude,  
+                                      Path=Value,  
+                                      Converter={StaticResource formattedString},  
+                                      ConverterParameter='Y Amplitude ({0:F1}):'}" />
+
+            <Slider x:Name="yAmplitude" 
+                    Minimum="0" Maximum="1" Value="0.9" 
+                    Margin="0 0 0 12" />
+
+            <TextBlock Text="{Binding ElementName=yFrequency,  
+                                      Path=Value,  
+                                      Converter={StaticResource formattedString},  
+                                      ConverterParameter='Y Frequency ({0:F2} cps):'}" />
+
+            <Slider x:Name="yFrequency" 
+                    Minimum="0" Maximum="10" Value="1" 
+                    LargeChange="0.1"  
+                    Margin="0 0 0 24" />
+
+            <TextBlock Text="{Binding ElementName=brightness, 
+                                      Path=Value,    
+                                      Converter={StaticResource formattedString}, 
+                                      ConverterParameter='Brightness (stroke thickness = {0:F1}):'}" />
+
+            <Slider x:Name="brightness" 
+                    Minimum="0.5" Maximum="10" Value="2" 
+                    Margin="0 0 0 12" />
+
+            <TextBlock Text="{Binding ElementName=persistence, 
+                                      Path=Value, 
+                                      Converter={StaticResource formattedString}, 
+                                      ConverterParameter='Persistence ({0:F1} seconds):'}" />
+
+            <Slider x:Name="persistence" 
+                    Minimum="1" Maximum="20" Value="4" />
+        </StackPanel>
+    </Grid>-->
+</UserControl> 

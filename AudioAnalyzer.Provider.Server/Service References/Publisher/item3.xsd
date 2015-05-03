@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/AudioAnalyzer.Common.Audio.AudioInterface.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AudioAnalyzer.Common.Audio.AudioInterface.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:30200/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/AudioAnalyzer.Common.Audio.AudioInterface" />
+  <xs:complexType name="StationContainer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MonitorContent" nillable="true" type="tns:ArrayOfStation" />
+      <xs:element minOccurs="0" name="MonitorID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StationContainer" nillable="true" type="tns:StationContainer" />
+  <xs:complexType name="ArrayOfStation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Station" nillable="true" type="tns:Station" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStation" nillable="true" type="tns:ArrayOfStation" />
+  <xs:complexType name="Station">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ListOfMeters" nillable="true" type="tns:ArrayOfMeter" />
+      <xs:element minOccurs="0" name="StationID" type="xs:int" />
+      <xs:element minOccurs="0" name="StationName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Station" nillable="true" type="tns:Station" />
+  <xs:complexType name="ArrayOfMeter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Meter" nillable="true" type="tns:Meter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMeter" nillable="true" type="tns:ArrayOfMeter" />
+  <xs:complexType name="Meter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/AudioAnalyzer.Common.Audio.AudioInterface" base="q1:StereoAudioInterface">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HostIPAdress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MeterID" type="xs:int" />
+          <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Meter" nillable="true" type="tns:Meter" />
+  <xs:complexType name="ArrayOfStationContainer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StationContainer" nillable="true" type="tns:StationContainer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStationContainer" nillable="true" type="tns:ArrayOfStationContainer" />
+</xs:schema>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AudioDetalis" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IDetalis_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8025/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8025/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8025/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AudioAnalyzer.Common.Audio.AudioInterface.Model" />
+      <xsd:import schemaLocation="http://localhost:8025/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AudioAnalyzer.Common.Audio.AudioInterface" />
+      <xsd:import schemaLocation="http://localhost:8025/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/AudioAnalyzer.Common.Audio.Helpers" />
+      <xsd:import schemaLocation="http://localhost:8025/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:8025/?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/NAudio.Dsp" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDetalis_GetDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetails" />
+  </wsdl:message>
+  <wsdl:message name="IDetalis_Capture_InputMessage">
+    <wsdl:part name="parameters" element="tns:Capture" />
+  </wsdl:message>
+  <wsdl:message name="IDetalis_RequestMp3_InputMessage">
+    <wsdl:part name="parameters" element="tns:RequestMp3" />
+  </wsdl:message>
+  <wsdl:message name="IDetalis_RequestMp3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RequestMp3Response" />
+  </wsdl:message>
+  <wsdl:message name="IDetalis_RequestPCM_InputMessage">
+    <wsdl:part name="parameters" element="tns:RequestPCM" />
+  </wsdl:message>
+  <wsdl:message name="IDetalis_RequestPCM_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RequestPCMResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDetalis_SendCatchingData_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendCatchingData" />
+  </wsdl:message>
+  <wsdl:message name="IDetalis_SendFTTArgs_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendFTTArgs" />
+  </wsdl:message>
+  <wsdl:message name="IDetalis_SendMaxSapleCalculaterd_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendMaxSapleCalculaterd" />
+  </wsdl:message>
+  <wsdl:message name="IDetalis_SendEncodedMP3_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendEncodedMP3" />
+  </wsdl:message>
+  <wsdl:message name="IDetalis_SendEncodedPCM_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendEncodedPCM" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="true" name="IDetalis">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDetalis/GetDetails" message="tns:IDetalis_GetDetails_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Capture">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDetalis/Capture" message="tns:IDetalis_Capture_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="RequestMp3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDetalis/RequestMp3" message="tns:IDetalis_RequestMp3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDetalis/RequestMp3Response" message="tns:IDetalis_RequestMp3_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="RequestPCM">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDetalis/RequestPCM" message="tns:IDetalis_RequestPCM_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDetalis/RequestPCMResponse" message="tns:IDetalis_RequestPCM_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SendCatchingData">
+      <wsdl:output wsaw:Action="http://tempuri.org/IDetalis/SendCatchingData" message="tns:IDetalis_SendCatchingData_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SendFTTArgs">
+      <wsdl:output wsaw:Action="http://tempuri.org/IDetalis/SendFTTArgs" message="tns:IDetalis_SendFTTArgs_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SendMaxSapleCalculaterd">
+      <wsdl:output wsaw:Action="http://tempuri.org/IDetalis/SendMaxSapleCalculaterd" message="tns:IDetalis_SendMaxSapleCalculaterd_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SendEncodedMP3">
+      <wsdl:output wsaw:Action="http://tempuri.org/IDetalis/SendEncodedMP3" message="tns:IDetalis_SendEncodedMP3_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SendEncodedPCM">
+      <wsdl:output wsaw:Action="http://tempuri.org/IDetalis/SendEncodedPCM" message="tns:IDetalis_SendEncodedPCM_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IDetalis" type="tns:IDetalis">
+    <wsp:PolicyReference URI="#NetTcpBinding_IDetalis_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetDetails">
+      <soap12:operation soapAction="http://tempuri.org/IDetalis/GetDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Capture">
+      <soap12:operation soapAction="http://tempuri.org/IDetalis/Capture" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="RequestMp3">
+      <soap12:operation soapAction="http://tempuri.org/IDetalis/RequestMp3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestPCM">
+      <soap12:operation soapAction="http://tempuri.org/IDetalis/RequestPCM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCatchingData">
+      <soap12:operation soapAction="http://tempuri.org/IDetalis/SendCatchingData" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFTTArgs">
+      <soap12:operation soapAction="http://tempuri.org/IDetalis/SendFTTArgs" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMaxSapleCalculaterd">
+      <soap12:operation soapAction="http://tempuri.org/IDetalis/SendMaxSapleCalculaterd" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEncodedMP3">
+      <soap12:operation soapAction="http://tempuri.org/IDetalis/SendEncodedMP3" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEncodedPCM">
+      <soap12:operation soapAction="http://tempuri.org/IDetalis/SendEncodedPCM" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AudioDetalis">
+    <wsdl:port name="NetTcpBinding_IDetalis" binding="tns:NetTcpBinding_IDetalis">
+      <soap12:address location="net.tcp://localhost:8026/AudioDetails" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8026/AudioDetails</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

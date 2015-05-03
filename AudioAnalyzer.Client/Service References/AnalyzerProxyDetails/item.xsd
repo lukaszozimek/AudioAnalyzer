@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8025/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AudioAnalyzer.Common.Audio.AudioInterface.Model" />
+  <xs:import schemaLocation="http://localhost:8025/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/AudioAnalyzer.Common.Audio.Helpers" />
+  <xs:element name="GetDetails">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Capture">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestMp3">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestMp3Response">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestPCM">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestPCMResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendCatchingData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AudioAnalyzer.Common.Audio.AudioInterface.Model" minOccurs="0" name="result" nillable="true" type="q1:ArrayOfMeter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendFTTArgs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AudioAnalyzer.Common.Audio.Helpers" minOccurs="0" name="fttData" nillable="true" type="q2:FftEventArgs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendMaxSapleCalculaterd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AudioAnalyzer.Common.Audio.Helpers" minOccurs="0" name="maxSampleData" nillable="true" type="q3:MaxSampleEventArgs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendEncodedMP3">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/AudioAnalyzer.Common.Audio.Helpers" minOccurs="0" name="_mp3Data" nillable="true" type="q4:Mp3EncodedeEventArgs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendEncodedPCM">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/AudioAnalyzer.Common.Audio.Helpers" minOccurs="0" name="_pcmData" nillable="true" type="q5:PCMBufferEventArgs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

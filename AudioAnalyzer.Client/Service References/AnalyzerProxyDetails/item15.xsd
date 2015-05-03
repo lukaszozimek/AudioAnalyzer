@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/AudioAnalyzer.Common.Audio.Helpers" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AudioAnalyzer.Common.Audio.Helpers" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8025/?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/NAudio.Dsp" />
+  <xs:import schemaLocation="http://localhost:8025/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:complexType name="FftEventArgs">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System" base="q1:EventArgs">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/NAudio.Dsp" name="_x003C_Result_x003E_k__BackingField" nillable="true" type="q2:ArrayOfComplex" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FftEventArgs" nillable="true" type="tns:FftEventArgs" />
+  <xs:complexType name="MaxSampleEventArgs">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System" base="q3:EventArgs">
+        <xs:sequence>
+          <xs:element name="_x003C_MaxSample_x003E_k__BackingField" type="xs:float" />
+          <xs:element name="_x003C_MinSample_x003E_k__BackingField" type="xs:float" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MaxSampleEventArgs" nillable="true" type="tns:MaxSampleEventArgs" />
+  <xs:complexType name="Mp3EncodedeEventArgs">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System" base="q4:EventArgs">
+        <xs:sequence>
+          <xs:element name="_encodedMP3" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Mp3EncodedeEventArgs" nillable="true" type="tns:Mp3EncodedeEventArgs" />
+  <xs:complexType name="PCMBufferEventArgs">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System" base="q5:EventArgs">
+        <xs:sequence>
+          <xs:element name="_pcmBuffor" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PCMBufferEventArgs" nillable="true" type="tns:PCMBufferEventArgs" />
+</xs:schema>

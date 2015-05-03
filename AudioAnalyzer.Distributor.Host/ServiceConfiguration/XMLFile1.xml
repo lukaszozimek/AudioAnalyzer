@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TimeSAMonitorServer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TCPAdress>localhost:32081</TCPAdress>
+  <HTTPAdress>localhost:3291</HTTPAdress>
+  <NumberOfMonitors>3</NumberOfMonitors>
+</TimeSAMonitorServer>
