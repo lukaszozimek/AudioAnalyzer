@@ -12,11 +12,17 @@ namespace AudioAnalyzer.Provider.Server.Configuration
 {
    public class Configuration  :IDisposable
     {
-        private AudioAnalyzerConfiguration Config {  get;  set; }
-        private NetworkConfiguration NetConfiguration {  get;  set; }
-        private AudioConfiguration AudioConfig {  get;  set; }
+        public AudioAnalyzerConfiguration Config {  get; private set; }
+        public NetworkConfiguration NetConfiguration {  get; private set; }
+        public AudioConfiguration AudioConfig {  get; private set; }
         private static Configuration _config;
-
+        public List<Meter> Meters { get { return AudioConfig.Meters; } }
+        public Publisher.DistributorClient Proxy{ get{ return NetConfiguration.Client;} }
+        public string ServiceAdress { get {return Config.ServiceAdress; } }
+        public ushort ServicePort { get{ return Config.ServicePort;} }
+        public MMDeviceCollection Devices { get { return AudioConfig.Devices.EnumerateAudioEndPoints(DataFlow.All, DeviceState.All); } }
+        public Publisher.DistributorClient Client { get{return NetConfiguration.Client;}}
+        public List<StationContainer> StationContainers { get { return AudioConfig.Content; } }
         public static Configuration Instance()
        {
        
@@ -31,38 +37,6 @@ namespace AudioAnalyzer.Provider.Server.Configuration
             }
        
        }
-
-        public List<StationContainer> GetContainer()
-        {
-            return AudioConfig.Content;
-        }
-
-        public Publisher.DistributorClient GetClient()
-        {
-            return NetConfiguration.Client;
-        }
-
-        public MMDeviceCollection GetDevices()
-        {
-            return AudioConfig.Devices.EnumerateAudioEndPoints(DataFlow.All, DeviceState.All);
-        }
-
-        public ushort GetServicePort()
-        {
-            return Config.ServicePort;
-        }
-       
-        public string GetServiceAdress()
-        {
-            return Config.ServiceAdress;
-        }
-
-        public Publisher.DistributorClient GetProxyObject()
-        {
-            return NetConfiguration.Client;
-         
-        }
-
         public void SetSystemRole()
         {
             NetConfiguration.Client.ConnectPublisher(NetConfiguration.Provider);
@@ -78,10 +52,7 @@ namespace AudioAnalyzer.Provider.Server.Configuration
            NetConfiguration.Client.PublishContextChange(AudioConfig.Content);
        }
 
-        public List<Meter> GetMeters()
-       {
-           return AudioConfig.Meters;
-       }
+   
 
         public void Dispose()
         {

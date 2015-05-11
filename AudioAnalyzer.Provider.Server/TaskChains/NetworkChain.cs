@@ -21,7 +21,7 @@ namespace AudioAnalyzer.Provider.Server.Tasks
         {
             try
             {
-                if (this.Config.GetContainer() != null)
+                if (this.Config.StationContainers != null)
                 {
                     this.Config.PublishContext();
                     Thread.Sleep(100);

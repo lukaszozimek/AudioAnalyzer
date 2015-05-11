@@ -49,7 +49,7 @@ namespace AudioAnalyzer.Provider.Server
         public List<string> GetHostAudioInterfaces()
         {
             List<string> list = new List<string>();
-            foreach (MMDevice device in Configuration.Configuration.Instance().GetDevices())
+            foreach (MMDevice device in Configuration.Configuration.Instance().Devices)
             {
                 list.Add(device.FriendlyName);
             }
@@ -76,7 +76,7 @@ namespace AudioAnalyzer.Provider.Server
         {
             try
             {
-               var ProxyObject = Configuration.Configuration.Instance().GetProxyObject();
+               var ProxyObject = Configuration.Configuration.Instance().Proxy;
                 ProxyObject.Open();
                 Configuration.Configuration.Instance().SetSystemRole();
                 
@@ -90,7 +90,7 @@ namespace AudioAnalyzer.Provider.Server
 
         private void CheckRemoteHost()
         {
-            this._hostChecker = new NetworkHelpers(Configuration.Configuration.Instance().GetServiceAdress(), Configuration.Configuration.Instance().GetServicePort());
+            this._hostChecker = new NetworkHelpers(Configuration.Configuration.Instance().ServiceAdress, Configuration.Configuration.Instance().ServicePort);
             _isSeviceAlive = this._hostChecker.CheckHostAlive();
             if (_isSeviceAlive)
             {
@@ -142,7 +142,7 @@ namespace AudioAnalyzer.Provider.Server
         
         public List<StationContainer> GetTrivialData()
         {
-            return Configuration.Configuration.Instance().GetContainer();
+            return Configuration.Configuration.Instance().StationContainers;
         }
 
         public class ServiceCallback : Publisher.IDistributorCallback

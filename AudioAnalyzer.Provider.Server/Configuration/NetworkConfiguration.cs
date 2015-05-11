@@ -10,7 +10,7 @@ using System.Text;
 
 namespace AudioAnalyzer.Provider.Server.Configuration
 {
-   public class NetworkConfiguration :IConfiguration, IDisposable
+   public class NetworkConfiguration : IDisposable
     {
         public AudioAnalyzerConfiguration Config { get; set; }
 
@@ -56,6 +56,9 @@ namespace AudioAnalyzer.Provider.Server.Configuration
             InstanceContext _context = new InstanceContext(new DataProvider.ServiceCallback());
             return new Tuple<NetTcpBinding, EndpointAddress, InstanceContext>(binding, endpoint, _context);
         }
-        
+
+
+
+    
     }
 }

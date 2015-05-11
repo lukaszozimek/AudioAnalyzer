@@ -9,7 +9,7 @@ using System.Text;
 
 namespace AudioAnalyzer.Provider.Server.Configuration
 {
-    public class AudioConfiguration : IConfiguration ,IDisposable
+    public class AudioConfiguration : IDisposable
     {
         public MMDeviceEnumerator Devices { get; set; }
         public List<StationContainer> Content { get; set; }

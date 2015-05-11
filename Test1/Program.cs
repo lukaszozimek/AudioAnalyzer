@@ -1,0 +1,18 @@
+﻿using AudioAnalyzer.Provider.Server.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Test1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            AudioAnalyzerConfiguration config = new AudioAnalyzerConfiguration();
+            AudioAnalyzerConfiguration.SerializeConfiguration(config);
+        }
+    }
+}

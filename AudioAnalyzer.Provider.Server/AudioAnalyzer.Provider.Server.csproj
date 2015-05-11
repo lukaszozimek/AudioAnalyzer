@@ -69,7 +69,6 @@
     <Compile Include="TaskChains\NetworkChain.cs" />
     <Compile Include="Configuration\AudioConfiguration.cs" />
     <Compile Include="Configuration\Configuration.cs" />
-    <Compile Include="Configuration\IConfiguration.cs" />
     <Compile Include="Configuration\NetworkConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>

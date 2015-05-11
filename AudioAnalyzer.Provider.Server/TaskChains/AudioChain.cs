@@ -18,7 +18,7 @@ namespace AudioAnalyzer.Provider.Server.Tasks
 
         public override void RequestHandler()
         {
-            foreach (var meterSend in Config.GetMeters())
+            foreach (var meterSend in Config.Meters)
             {
                 meterSend.LeftCHannelLevel = (int)(Decibels.LinearToDecibels(meterSend.Device.AudioMeterInformation.PeakValues[0]));
                 meterSend.RightChannelLevel = (int)(Decibels.LinearToDecibels(meterSend.Device.AudioMeterInformation.PeakValues[1]));

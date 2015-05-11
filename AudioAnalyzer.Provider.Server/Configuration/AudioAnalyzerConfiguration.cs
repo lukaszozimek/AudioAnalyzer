@@ -93,7 +93,7 @@ public partial class AudioAnalyzerConfiguration
             }
             return item;
         }
-            public static void SerializeConfiguration(AudioAnalyzerConfiguration item)
+       public static void SerializeConfiguration(AudioAnalyzerConfiguration item)
         {
             XmlSerializer serializer
                                    = new XmlSerializer(typeof(AudioAnalyzerConfiguration));
